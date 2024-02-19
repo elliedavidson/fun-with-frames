@@ -4,3 +4,5 @@ This is a quick implementation of [Farcaster Frames](https://docs.farcaster.xyz/
 
 To run locally: `python -m flask run`
 
+To deploy to Vercel: `vercel --prod` or `vercel --dev`
+
