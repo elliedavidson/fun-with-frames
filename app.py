@@ -29,14 +29,18 @@ def frame_handler():
     global registration_url
 
     if request.method == 'POST':
-        if slide < total_slides - 1:
+        if slide == 1:
             slide += 1
             slide_path = "slide-" + str(slide)
-            return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text=next_speaker_button_text, left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
+            return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text="Location"t, left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
+        if slide == 2:
+            slide += 1
+            slide_path = "slide-" + str(slide)
+            return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text="Home", left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
         else: 
             slide = 0
             slide_path = "slide-" + str(slide)
-            return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text=speakers_button_text, left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
+            return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text="Schedule", left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
     else:
         slide_path = "slide-" + str(slide)
         return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text=speakers_button_text, left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
