@@ -29,11 +29,11 @@ def frame_handler():
     global registration_url
 
     if request.method == 'POST':
-        if slide == 1:
+        if slide == 0:
             slide += 1
             slide_path = "slide-" + str(slide)
             return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text="Location", left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
-        if slide == 2:
+        if slide == 1:
             slide += 1
             slide_path = "slide-" + str(slide)
             return render_template("slide-n.html", frame_image=(request.url + slide_path), og_image=(request.url + slide_path), left_button_text="Home", left_button_target=request.url, right_button_text=registration_button_text, right_button_target=registration_url)
